@@ -1,0 +1,6 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+	<h2 id="componentidwithoutinheritance">Component without Inheritance. Id: ${id}</h2>
+	
+	<div>No inheritance mapping</div>	
+</div>

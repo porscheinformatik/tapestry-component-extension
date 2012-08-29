@@ -1,0 +1,114 @@
+<document>
+    <body>
+
+        <section name="Examples">
+            <p>
+            	The extension point module offers the possibility for extension. The source page/component provides
+            	certain points for other modules to put their content in this area. The expansion point mechanism
+            	extends the component annotation. Normally extension points are declared as Object but it can also be 
+            	a base class. 
+            </p>
+            
+            <subsection name="ExtensionPointDemo.tml">
+                <source><![CDATA[<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd">
+<body>
+	<div>
+		<h1>This page offers an extensionPoint</h1>
+	</div>
+	
+	<div t:id="extensionPointWithoutParams"></div>
+	
+	<div t:id="extensionPointWithParams"></div>
+</body>
+</html>]]></source>
+            </subsection>
+
+            <subsection name="ExtensionPointDemo.java">
+            	<source><![CDATA[public class ExtensionPointDemo
+					{
+	@ExtensionPoint(id="extensionPointWithoutParams")
+	@Component()
+	private Object extensionPointWithoutParams;
+						
+	@ExtensionPoint(id="extensionPointWithParams")
+	@Component(parameters={"message=literal:Hello"})
+	private Object extensionPointWithParams;
+}
+]]></source>
+        	</subsection>
+        	
+        	<p>
+        		The extension without any params.
+        	</p>
+        	
+        	<subsection name="ExtensionPointWithoutParams.tml">
+        		<source>
+                	<![CDATA[
+<t:container xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+	<div>
+		<h3>My content is contributed to the extension point demo and takes no params.</h3>
+	</div>
+</t:container>]]></source>
+        	</subsection>
+        	
+        	<subsection name="ExtensionPointWithoutParams.java">
+            	<source><![CDATA[
+public class ExtensionPointWithoutParams
+{
+}
+]]></source>
+        	</subsection>
+        	
+        	<p>
+        		The extension without params taken from the target page.
+        	</p>
+        	
+        	<subsection name="ExtensionPointWithParams.tml">
+        		<source>
+                	<![CDATA[
+<t:container xmlns="http://www.w3.org/1999/xhtml" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd" xmlns:p="tapestry:parameter">
+	<div>
+		<h3>My content is contributed to the extension point demo and uses the provided params.</h3>
+	</div>
+	
+	<p>${message}</p>
+</t:container>]]></source>
+        	</subsection>
+        	
+        	<subsection name="ExtensionPointWithParams.java">
+            	<source><![CDATA[
+public class ExtensionPointWithParams
+{
+	@Parameter()
+	@Property(write=false)
+	private String message;
+}
+]]></source>
+        	</subsection>
+        	
+        	<p>
+        		The components for extension must be contributed to the global extension point service.
+        	</p>
+        	
+        	<subsection name="ExtensionPointModule.java">
+            	<source><![CDATA[
+public class ExtensionPointModule
+{
+	public static void contributeExtensionPointService(MappedConfiguration<String, ContributableExtension> configuration)
+    {
+    	// extension point without params - id must match the id of the @ExtensionPoint
+        configuration.add("extensionPointWithoutParams", new ContributableExtension("extensionPointWithoutParams",
+            ExtensionPointWithoutParams.class));
+            
+        // extension point with params - id must match the id of the @ExtensionPoint
+        configuration.add("extensionPointParams", new ContributableExtension("extensionPointWithParams",
+            ExtensionPointWithParams.class));
+	}
+}
+]]></source>
+        	</subsection>
+        	
+    	</section>
+
+	</body>
+</document>

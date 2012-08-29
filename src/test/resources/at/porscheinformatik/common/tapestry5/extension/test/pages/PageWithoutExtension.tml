@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+<head>
+	<title>Page offers extensions but no extension is available</title>
+</head>
+
+<body>
+	<h1 id="pageWithoutExtension">Show offer extensions but no extension is available</h1>
+	
+	<div t:id="extensionPoint"></div>
+	
+	<div t:id="extensionPoint2"></div>
+</body>
+
+</html>

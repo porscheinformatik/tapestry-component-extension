@@ -1,0 +1,11 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+	<h2 id="componentidwithinheritance">Component with Inheritance. Id: ${id}</h2>
+	
+	<ul>
+		<li t:id="ingredients">
+			Ingredient: <a t:id="ingredientDetail">${currentIngredient}</a> 
+		</li>
+	</ul>
+	
+</div>

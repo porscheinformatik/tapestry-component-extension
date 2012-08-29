@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+<head>
+	<title>Consumer</title>
+</head>
+
+<body>
+	<h1>Shows some items direct and offers an extension point</h1>
+	
+	<div>
+		Item 1 - I'm included directly.
+	</div>
+
+	<div t:id="extensionPointWithInheritance"></div>
+	
+	<div t:id="extensionPointWithoutInheritance"></div>
+	
+</body>
+
+</html>

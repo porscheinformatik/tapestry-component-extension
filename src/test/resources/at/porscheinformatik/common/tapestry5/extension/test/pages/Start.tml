@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+<head>
+	<title>Start page for the Tapestry extension demo</title>
+</head>
+
+<body>
+	<h1>This is the start page for the Tapestry extension demo</h1>
+	
+	<ul>
+		<li><t:pagelink page="PageWithExtension">Page with a provided extension</t:pagelink></li>
+		<li><t:pagelink page="PageWithoutExtension">Page without a provided extension</t:pagelink></li>
+	</ul>
+</body>
+
+</html>

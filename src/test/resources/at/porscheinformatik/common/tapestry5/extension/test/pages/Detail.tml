@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_1_0.xsd"
+	xmlns:p="tapestry:parameter">
+<head>
+	<title>Start page for the Tapestry extension demo</title>
+</head>
+
+<body>
+	<div>Detail Page to show event bubbling</div>
+	
+	<h3 id="componentId">${ingredientDetail} is always good on a pizza!</h3>
+</body>
+
+</html>
